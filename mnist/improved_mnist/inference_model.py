@@ -8,8 +8,6 @@ import matplotlib.pyplot as plt
 from mnist import Net
 from PIL import Image
 
-usr_input = input("Enter a number: ")
-image_path = f"{usr_input}.png"
 
 device = torch.device("mps")
 
@@ -21,6 +19,7 @@ model = Net().to(device)
 model.load_state_dict(torch.load("mnist_base_model.pth"))
 model.eval()
 
+image_path = f"7.png"
 image = Image.open(image_path).convert("L")
 
 transform  = transforms.Compose([
